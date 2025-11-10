@@ -18,11 +18,7 @@ struct ContentView: View {
         Coffee(name: "Latte", assetName: "Latte", coffeeType: .espresso),
         Coffee(name: "Americano", assetName: "Americano", coffeeType: .espresso)
     ]
-    
-    let food: [Food] = [
-        Food(name: "Croissant", assetName: "Croissant", temp: true)
-    ]
-    
+
     var body: some View {
             NavigationStack { // makes the user able to go to customization view
                 //   CoffeeTitleView()
