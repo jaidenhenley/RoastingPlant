@@ -9,7 +9,10 @@ import SwiftUI
 
 
 struct ContentView: View {
-    
+    let food: [Food] = [
+        Food(name: "Croissant", assetName: "Croissant"),
+        Food(name: "Choc Croissant", assetName: "ChocCroissant")
+    ]
     let coffee: [Coffee] = [
         Coffee(name: "Dark Coffee", assetName: "DarkDrip", coffeeType: .drips),
         Coffee(name: "Medium Coffee", assetName: "LightDrip", coffeeType: .drips),
@@ -18,11 +21,11 @@ struct ContentView: View {
         Coffee(name: "Latte", assetName: "Latte", coffeeType: .espresso),
         Coffee(name: "Americano", assetName: "Americano", coffeeType: .espresso)
     ]
-
+    
     var body: some View {
-            NavigationStack { // makes the user able to go to customization view
-                //   CoffeeTitleView()
-                ScrollView {
+        NavigationStack { // makes the user able to go to customization view
+            //   CoffeeTitleView()
+            ScrollView {
                 HStack {
                     Text("Order")
                         .font(.largeTitle)
@@ -37,80 +40,90 @@ struct ContentView: View {
                 .padding(.vertical)
                 
                 
-                    VStack {
-                        Text("Espresso:")
-                            .font(.title2)
-                            .bold()
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding()
-                        
-                        ScrollView(.horizontal) {
-                            HStack {
-                                ForEach(coffee, id: \.name) { Coffee in
-                                    NavigationLink {
-                                        CustomizationView(coffee: Coffee,)
-                                            .navigationTitle("\(Coffee.name)")
-                                            .toolbar {
-                                                ToolbarItem(placement: .navigationBarTrailing) {
-                                                    Image("Logo")
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(height: 40)
-                                                    
-                                                    
-                                                }
+                VStack {
+                    Text("Espresso:")
+                        .font(.title2)
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                    
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(coffee, id: \.name) { Coffee in
+                                NavigationLink {
+                                    CustomizationView(coffee: Coffee,)
+                                        .navigationTitle("\(Coffee.name)")
+                                        .toolbar {
+                                            ToolbarItem(placement: .navigationBarTrailing) {
+                                                Image("Logo")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(height: 40)
+                                                
+                                                
                                             }
-                                    } label: {
-                                        if Coffee.coffeeType == .espresso {
-                                            CoffeeTileView(coffee: Coffee)
                                         }
+                                } label: {
+                                    if Coffee.coffeeType == .espresso {
+                                        CoffeeTileView(coffee: Coffee)
                                     }
-                                    
-                                    
                                 }
+                                
+                                
+                            }
+                            
+                        }
+                    }
+                    Text("Drip Coffee:")
+                        .font(.title2)
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                    
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ForEach(coffee, id: \.name) { Coffee in
+                                NavigationLink {
+                                    CustomizationView(coffee: Coffee,)
+                                        .navigationTitle("\(Coffee.name)")
+                                        .toolbar {
+                                            ToolbarItem(placement: .navigationBarTrailing) {
+                                                Image("Logo")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(height: 40)
+                                                
+                                                
+                                            }
+                                        }
+                                } label: {
+                                    if Coffee.coffeeType == .drips {
+                                        CoffeeTileView(coffee: Coffee)
+                                    }
+                                }
+                                
                                 
                             }
                         }
-                        Text("Drip Coffee:")
-                            .font(.title2)
-                            .bold()
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding()
-                        
-                        ScrollView(.horizontal) {
-                            HStack {
-                                ForEach(coffee, id: \.name) { Coffee in
-                                    NavigationLink {
-                                        CustomizationView(coffee: Coffee,)
-                                            .navigationTitle("\(Coffee.name)")
-                                            .toolbar {
-                                                ToolbarItem(placement: .navigationBarTrailing) {
-                                                    Image("Logo")
-                                                        .resizable()
-                                                        .scaledToFit()
-                                                        .frame(height: 40)
-                                                    
-                                                    
-                                                }
-                                            }
-                                    } label: {
-                                        if Coffee.coffeeType == .drips {
-                                            CoffeeTileView(coffee: Coffee)
-                                        }
-                                    }
-                                    
-                                    
-                                }
+                    }
+                    Text("Food Options:")
+                        .font(.title2)
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding()
+                    
+                    ScrollView(.horizontal) {
+                        HStack {
+                            
+                            ForEach(food, id: \.name) { Food in
                             }
                         }
-
+                    }
+                        }
                     }
                 }
             }
         }
-    }
-        
-
     #Preview {
         ContentView()
     }

@@ -7,6 +7,34 @@
 // This view is to create the tiles for the content view
 
 import SwiftUI
+struct FoodTileView: View {
+    var food: Food // brings all of the food parameters into the view
+    var body: some View {
+        VStack {
+            Image(food.assetName)
+                .resizable()
+                .cornerRadius(8)
+                .scaledToFit()
+                .padding()
+            VStack {
+                Text(food.name) // inserts food name
+                    .frame(maxWidth: 150, alignment: .leading)
+                    .foregroundStyle(.white)
+                    .font(.body)
+                
+               Text("Hot or Cold")
+                .frame(maxWidth: 150, alignment: .leading)
+                .padding(.bottom)
+                .foregroundStyle(.white)
+                .font(.subheadline)
+                .fontWeight(.light)
+            }
+            .padding(.leading)
+        }
+        
+    }
+}
+
 
 struct CoffeeTileView: View {
     var coffee: Coffee // brings all of the coffee parameters into the view
@@ -48,6 +76,8 @@ struct CoffeeTileView: View {
     }
 
 
-#Preview {
-    CoffeeTileView(coffee: Coffee(name: "Cappacino", assetName: "Capp"))
+#Preview("Coffee Tile") {
+    CoffeeTileView(coffee: Coffee(name: "Cappuccino", assetName: "Capp"))
+    FoodTileView(food: Food(name: "Croissant", assetName: "Croissant"))
+
 }

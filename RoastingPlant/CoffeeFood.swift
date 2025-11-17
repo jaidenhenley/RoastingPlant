@@ -6,7 +6,10 @@
 //
 
 import Foundation
-
+struct Food {
+    var name: String
+    var assetName: String
+}
 struct Coffee {
     var decaf: Bool = false
     var extraShot: Int = 0
