@@ -31,8 +31,11 @@ struct FoodTileView: View {
             }
             .padding(.leading)
         }
-        
+        .background(RoundedRectangle(cornerRadius: 16))
+        .foregroundStyle(Color.main)
+      .frame(width: 196, height: 218)
     }
+    
 }
 
 

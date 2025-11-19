@@ -114,11 +114,30 @@ struct ContentView: View {
                     
                     ScrollView(.horizontal) {
                         HStack {
-                            
                             ForEach(food, id: \.name) { Food in
+                                NavigationLink {
+                                    FoodCustomizationVIew()
+                                        .navigationTitle("\(Food.name)")
+                                        .toolbar {
+                                            ToolbarItem(placement: .navigationBarTrailing) {
+                                                Image("Logo")
+                                                    .resizable()
+                                                    .scaledToFit()
+                                                    .frame(height: 40)
+                                                
+                                                
+                                            }
+                                        }
+                                    
+                                } label: {
+                                    FoodTileView(food: Food)
+                                }
                             }
                         }
-                    }
+                                
+                            
+                            
+                            }
                         }
                     }
                 }
