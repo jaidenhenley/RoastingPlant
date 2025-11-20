@@ -7,6 +7,12 @@
 
 import Foundation
 
+enum Topping: String, CaseIterable {
+    case CreamCheese
+    case Butter
+    case None
+}
+
 
 enum Size: String, CaseIterable {
     case Small
@@ -45,4 +51,9 @@ enum MilkType: String, CaseIterable {
 enum CoffeeType: String, CaseIterable {
     case espresso
     case drips
+}
+
+enum FoodType: String, CaseIterable {
+    case croissant
+    case bagel
 }

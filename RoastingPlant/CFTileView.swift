@@ -81,6 +81,6 @@ struct CoffeeTileView: View {
 
 #Preview("Coffee Tile") {
     CoffeeTileView(coffee: Coffee(name: "Cappuccino", assetName: "Capp"))
-    FoodTileView(food: Food(name: "Croissant", assetName: "Croissant"))
+    FoodTileView(food: Food(name: "Croissant", assetName: "Croissant", foodType: .croissant))
 
 }

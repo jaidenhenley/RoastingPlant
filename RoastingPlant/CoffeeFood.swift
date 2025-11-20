@@ -9,6 +9,9 @@ import Foundation
 struct Food {
     var name: String
     var assetName: String
+    var foodType: FoodType
+    var toasted: Bool = false
+    var topping: Topping = .None
 }
 struct Coffee {
     var decaf: Bool = false

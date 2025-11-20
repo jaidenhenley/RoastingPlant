@@ -10,8 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     let food: [Food] = [
-        Food(name: "Croissant", assetName: "Croissant"),
-        Food(name: "Choc Croissant", assetName: "ChocCroissant")
+        Food(name: "Bagel", assetName: "Bagel", foodType: .bagel),
+        Food(name: "Croissant", assetName: "Croissant", foodType: .croissant),
+        Food(name: "Choc Croissant", assetName: "ChocCroissant", foodType: .croissant)
     ]
     let coffee: [Coffee] = [
         Coffee(name: "Dark Coffee", assetName: "DarkDrip", coffeeType: .drips),
@@ -116,7 +117,7 @@ struct ContentView: View {
                         HStack {
                             ForEach(food, id: \.name) { Food in
                                 NavigationLink {
-                                    FoodCustomizationVIew()
+                                    FoodCustomizationVIew(food: Food)
                                         .navigationTitle("\(Food.name)")
                                         .toolbar {
                                             ToolbarItem(placement: .navigationBarTrailing) {
