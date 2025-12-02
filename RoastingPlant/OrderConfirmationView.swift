@@ -224,8 +224,8 @@ struct OrderConfirmationView: View {
                             .tint(.gray)
                     }
                 }
-            }
-            .toolbar {
+            
+            
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         showingAlert = true
